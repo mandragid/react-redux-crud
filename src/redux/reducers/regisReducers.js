@@ -1,18 +1,18 @@
 const regisState = {
-    message:"Berhasil",
-}
+  message: "",
+};
 
 const regisReducer = (state = regisState, action) => {
-    switch (action.type) {
-        case "REGISTER":
-            return{
-                ...regisState,
-                message: action.payload
-            }
-    
-        default:
-            return state
-    }
-}
+  switch (action.type) {
+    case "REGIS":
+      return {
+        ...regisState,
+        message: action.payload,
+      };
 
-export default regisReducer
+    default:
+      return state;
+  }
+};
+
+export default regisReducer;
