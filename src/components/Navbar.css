@@ -1,0 +1,29 @@
+.navbar-section-bg {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.navbar-section {
+    width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-left h1 {
+    color: rgb(207, 93, 93);
+    text-shadow: 2px 2px 2px rgb(169, 158, 228);
+}
+
+.navbar-right {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.navbar-right-register {
+    padding: 8px;
+    background-color: green;
+    color: white;
+}
