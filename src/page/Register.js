@@ -26,7 +26,7 @@ const Register = () => {
     console.log(passwordInput);
   };
 
-  const handleRegister = (regis) => {
+  const handleRegister = () => {
     const payload = {
       email: emailInput,
       password: passwordInput,
