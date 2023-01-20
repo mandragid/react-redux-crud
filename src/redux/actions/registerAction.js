@@ -1,16 +1,15 @@
 import axios from "axios";
+import { API } from "../../const/endpoint";
 
 export const registerAction = (payload) => (dispatch) => {
-  axios
-    .post(
-      "https://bootcamp-rent-cars.herokuapp.com/admin/auth/register",
-      payload
-    )
-    .then((res) => {
-      dispatch({
-        type: "REGIS",
-        payload: res.statusText,
-      });
-    })
-    .catch((err) => console.log(err));
+	axios
+		.post(API.REGISTER, payload)
+		.then((res) => {
+			dispatch({
+				type: "REGIS",
+				payload: res.statusText,
+			});
+			console.log(registerAction);
+		})
+		.catch((err) => console.log(err));
 };

@@ -1,18 +1,16 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { API } from "../../const/endpoint";
 
 export const loginAction = (loginPayload) => (dispatch) => {
-  axios
-    .post(
-      "https://bootcamp-rent-cars.herokuapp.com/admin/auth/login",
-      loginPayload
-    )
-    .then((res) => {
-      dispatch({
-        type: "LOGIN",
-        payload: true,
-      });
-      localStorage.setItem("token", res.data.access_token);
-    })
-    .catch((err) => console.log(err));
+	axios
+		.post(API.LOGIN, loginPayload)
+		.then((res) => {
+			dispatch({
+				type: "LOGIN",
+				payload: true,
+			});
+			localStorage.setItem("token", res.data.access_token);
+		})
+		.catch((err) => console.log(err));
 };
