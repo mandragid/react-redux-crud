@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedRoutes = () => {
 	const [loading, setLoading] = useState();
@@ -24,9 +24,13 @@ const ProtectedRoutes = () => {
 				payload: true,
 			});
 		}
-	});
+	}, [login.isLogin]);
 
-	return "test";
+	if (loading) {
+		return "loading...";
+	}
+
+	return login.isLogin ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default ProtectedRoutes;
