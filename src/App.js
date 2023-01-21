@@ -5,16 +5,16 @@ import Home from "./page/Home";
 import ProtectedRoutes from "./hoc/ProtectedRoutes";
 
 function App() {
-	return (
-		<Routes>
-			<Route element={<ProtectedRoutes />}>
-				<Route path="/" element={<Home />} />
-			</Route>
+  return (
+    <Routes>
+      {/* <Route element={<ProtectedRoutes />}> */}
+      <Route path="/" element={<Home />} />
+      {/* </Route> */}
 
-			<Route path="/login" element={<Login />} />
-			<Route path="/register" element={<Register />} />
-		</Routes>
-	);
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+    </Routes>
+  );
 }
 
 export default App;
