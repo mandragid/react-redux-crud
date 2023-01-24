@@ -40,6 +40,11 @@ const Navbar = () => {
             </Link>
           </div>
           <div>
+            <Link to={"/discovery"}>
+              <p>Discovery</p>
+            </Link>
+          </div>
+          <div>
             {/* checks the availability of login token, if available, render logout button,  otherwise render register button that navigate to register page */}
             {!!token ? (
               <button className="navbar-right-register" onClick={handleLogout}>

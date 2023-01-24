@@ -1,36 +1,24 @@
-// import { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { Navigate, Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Outlet, Navigate } from "react-router-dom";
+import { handleToken } from "../redux/actions/authAction";
 
-// const ProtectedRoutes = () => {
-// 	const [loading, setLoading] = useState();
-// 	const { login } = useSelector((rootReducers) => rootReducers);
-// 	const dispatch = useDispatch;
-// 	console.log(login);
+const ProtectedRoute = () => {
+  //   const { isLogin, loading } = useSelector((rootReducers) => rootReducers);
+  const dispatch = useDispatch();
 
-// 	useEffect(() => {
-// 		setLoading(true);
-// 		const token = localStorage.getItem("token");
-// 		if (!token) {
-// 			setLoading(false);
-// 			dispatch({
-// 				type: "LOGIN",
-// 				payload: false,
-// 			});
-// 		} else {
-// 			setLoading(false);
-// 			dispatch({
-// 				type: "LOGIN",
-// 				payload: true,
-// 			});
-// 		}
-// 	}, [login.isLogin]);
+  const state = useSelector((state) => state);
+  console.log(state);
 
-// 	if (loading) {
-// 		return "loading...";
-// 	}
+  useEffect(() => {
+    dispatch(handleToken());
+  }, [state.login.isLogin]);
 
-// 	return login.isLogin ? <Outlet /> : <Navigate to="/login" />;
-// };
+  if (state.login.loading) {
+    return "loading...";
+  }
 
-// export default ProtectedRoutes;
+  return state.login.isLogin ? <Outlet /> : <Navigate to="/login" />;
+};
+
+export default ProtectedRoute;

@@ -13,3 +13,25 @@ export const authAction = (loginPayload) => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const handleToken = () => (dispatch) => {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    dispatch({
+      type: "TOKEN_CHECK",
+      payload: {
+        isLogin: false,
+        loading: false,
+      },
+    });
+  } else {
+    dispatch({
+      type: "TOKEN_CHECK",
+      payload: {
+        isLogin: true,
+        loading: false,
+      },
+    });
+  }
+};

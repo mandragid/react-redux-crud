@@ -1,5 +1,6 @@
 const loginState = {
   isLogin: false,
+  loading: false,
 };
 
 const loginReducer = (state = loginState, action) => {
@@ -8,6 +9,12 @@ const loginReducer = (state = loginState, action) => {
       return {
         ...loginState,
         isLogin: action.payload,
+      };
+    case "TOKEN_CHECK":
+      return {
+        ...loginState,
+        isLogin: action.payload.isLogin,
+        loading: action.payload.loading,
       };
 
     default:
