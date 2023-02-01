@@ -8,7 +8,7 @@ const ProtectedRoute = () => {
   const dispatch = useDispatch();
 
   const state = useSelector((state) => state);
-  console.log(state);
+  // console.log(state);
 
   useEffect(() => {
     dispatch(handleToken());

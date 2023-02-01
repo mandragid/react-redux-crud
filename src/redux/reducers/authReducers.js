@@ -1,6 +1,6 @@
 const loginState = {
   isLogin: false,
-  loading: false,
+  loading: true,
 };
 
 const loginReducer = (state = loginState, action) => {
